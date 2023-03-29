@@ -1,0 +1,86 @@
+/* Creates Customer Table */
+Create Table Customer(
+Customer_ID Varchar(15),
+Customer_Name Varchar(15),
+Street_Address Varchar(15),
+Zipcode Number(6,0),
+Account_Number Varchar(20),
+Primary Key (Customer_ID)
+);
+
+/* Creates Distributer Table */
+Create Table Distributor(
+Distributor_ID Varchar(15),
+Distributor_Name Varchar(15),
+Primary Key (Distributor_ID)
+);
+
+/* Creates Movie Table */
+Create Table Movie(
+Movie_ID Varchar(15),
+Movie_Name Varchar(15),
+Director Varchar(15),
+Actor_Name Varchar(15),
+Awards Varchar(15),
+Release_Year Varchar(15),
+Run_Time Varchar(15),
+Distributor_ID Varchar(15),
+Rating Varchar(15),
+Primary Key (Movie_ID)
+);
+
+/* Creates Video_DVD Table */
+Create Table Video_DVD(
+Video_DVD_ID varchar(15),
+Distributor_ID varchar(15),
+Movie_ID varchar(15),
+Customer_ID varchar(15),
+lease_Date varchar(15),
+Return_Date varchar(15),
+Damage_Charges varchar(15),
+Tax varchar(15),
+Primary Key (Video_DVD_ID)
+);
+
+/*Insert into Customer Tables*/
+INSERT INTO CUSTOMER (Customer_ID, Customer_Name, Street_Address, Zipcode, Account_Number) VALUES ('CUST-001','Khalil Miller','STREET1','123456','1234567890');
+INSERT INTO CUSTOMER (Customer_ID, Customer_Name, Street_Address, Zipcode, Account_Number) VALUES ('CUST-002','Susan Mason','STREET2','123456','1234567899');
+INSERT INTO CUSTOMER (Customer_ID, Customer_Name, Street_Address, Zipcode, Account_Number) VALUES ('CUST-003','Aleks Fletcher','STREET3','123456','1234567898');
+INSERT INTO CUSTOMER (Customer_ID, Customer_Name, Street_Address, Zipcode, Account_Number) VALUES ('CUST-004','Dorian Norville','STREET4','123456','1234567896');
+INSERT INTO CUSTOMER (Customer_ID, Customer_Name, Street_Address, Zipcode, Account_Number) VALUES ('CUST-005','Leon Hargrove','STREET5','123456','1234567893');
+
+/* Insert into Distibutor Table*/
+INSERT INTO DISTRIBUTOR (Distributor_ID, Distributor_Name) VALUES('DIS-001','DISTRIBUTOR 1');
+INSERT INTO DISTRIBUTOR (Distributor_ID, Distributor_Name) VALUES('DIS-002','DISTRIBUTOR 2');
+INSERT INTO DISTRIBUTOR (Distributor_ID, Distributor_Name) VALUES('DIS-003','DISTRIBUTOR 3');
+INSERT INTO DISTRIBUTOR (Distributor_ID, Distributor_Name) VALUES('DIS-004','DISTRIBUTOR 4');
+INSERT INTO DISTRIBUTOR (Distributor_ID, Distributor_Name) VALUES('DIS-005','DISTRIBUTOR 5');
+
+/* Insert into Movie Table */
+INSERT INTO MOVIE (Movie_ID, Director, Actor_Name, Awards, Run_Time, Release_Year, Movie_Name, Distributor_ID, Rating) VALUES ('MOV-001','DIRECTOR1','MOVIE1','DIS-001','ACTOR1','150','AWARDS1','4','2012');
+INSERT INTO MOVIE (Movie_ID, Director, Actor_Name, Awards, Run_Time, Release_Year, Movie_Name, Distributor_ID, Rating) VALUES ('MOV-002','DIRECTOR1','MOVIE2','DIS-002','ACTOR1','150','AWARDS1','4','2015');
+INSERT INTO MOVIE (Movie_ID, Director, Actor_Name, Awards, Run_Time, Release_Year, Movie_Name, Distributor_ID, Rating) VALUES ('MOV-003','DIRECTOR1','MOVIE3','DIS-003','ACTOR1','150','AWARDS1','4','2015');
+INSERT INTO MOVIE (Movie_ID, Director, Actor_Name, Awards, Run_Time, Release_Year, Movie_Name, Distributor_ID, Rating) VALUES ('MOV-004','DIRECTOR1','MOVIE4','DIS-001','ACTOR1','150','AWARDS1','4','2015');
+INSERT INTO MOVIE (Movie_ID, Director, Actor_Name, Awards, Run_Time, Release_Year, Movie_NAme, Distributor_ID, Rating) VALUES ('MOV-005','DIRECTOR1','MOVIE5','DIS-002','ACTOR1','150','AWARDS1','4','2015');
+
+/*Insert into Video_DVD */
+INSERT INTO VIDEO_DVD (Video_DVD_ID, Distributor_ID, Movie_ID, Customer_ID, lease_Date, Return_Date, Damage_Charges, Tax) VALUES('VID-001','DIS-001','MOV-001','CUST-001','2017-11-26','2017-11-26','$5','$5');
+INSERT INTO VIDEO_DVD (Video_DVD_ID, Distributor_ID, Movie_ID, Customer_ID, lease_Date, Return_Date, Damage_Charges, Tax) VALUES('VID-002','DIS-002','MOV-001','CUST-002', '2017-11-26','2017-11-26','$5','$5'); 
+INSERT INTO VIDEO_DVD (Video_DVD_ID, Distributor_ID, Movie_ID, Customer_ID, lease_Date, Return_Date, Damage_Charges, Tax) VALUES('VID-003','DIS-002','MOV-002','CUST-003','2017-11-26', '2017-11-26','$5','$5'); 
+INSERT INTO VIDEO_DVD (Video_DVD_ID, Distributor_ID, Movie_ID, Customer_ID, lease_Date, Return_Date, Damage_Charges, Tax) VALUES('VID-004','DIS-003','MOV-002','CUST-004','2017-11-26','2017-11-26','$5', '$5');
+INSERT INTO VIDEO_DVD (Video_DVD_ID, Distributor_ID, Movie_ID, Customer_ID, lease_Date, Return_Date, Damage_Charges, Tax) VALUES('VID-005','DIS-003','MOV-002','CUST-005','2017-11-26','2017-11-26','$5', '$5');
+
+/*Retrieve Customer information*/
+Select*From Customer;
+
+/*Retrieve Rented Videos*/
+Select*From Video_DVD;
+
+/*Produce Distributer information*/
+Select*From Distributor;
+
+/*Delete a customer*/
+Delete From Customer where Customer_ID = 'CUST-005';
+
+/*Update Customer Name*/
+Update Customer Set Customer_Name = 'Susan Miller' Where Customer_ID = 'CUST-002';
